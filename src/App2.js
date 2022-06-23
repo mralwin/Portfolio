@@ -5,7 +5,7 @@ import FlipCard from './flipcard';
 const App2 = () => {
 
   const arr = [1,1,1,1,1,1,1,1,1]
-
+  const link = 'https://www.w3schools.com/css/tryit.asp?filename=trycss3_flexbox_flex-wrap_wrap'
   return (
     <Container>
       <NavBar>NavBar</NavBar>
