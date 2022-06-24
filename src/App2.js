@@ -1,18 +1,29 @@
 import styled from "styled-components";
 import FlipCard from './flipcard';
+import React, { useState } from 'react'
 
 
 const App2 = () => {
 
   const arr = [1,1,1,1,1,1,1,1,1]
   const link = 'https://www.w3schools.com/css/tryit.asp?filename=trycss3_flexbox_flex-wrap_wrap'
+  const [selectedCard, setSelectedCard] = useState(null)
+  
   return (
     <Container>
       <NavBar>NavBar</NavBar>
       <Main>Main</Main>
       <SideBar>SideBar</SideBar>
+      
       <FlexContainer>
-        {arr.map(i => <FlipCard />)}
+        {arr.map((e, i) => {
+          return(
+          <>
+            <FlipCard key={i} id={i} selectedCard={selectedCard} onClick={(() => console.log(i))}/> 
+            <button onClick={(() => {
+                                      setSelectedCard(i)
+                                      console.log(selectedCard)})}>hit me</button>
+          </>)})}
       </FlexContainer>
       <Footer>Footer</Footer>
     </Container>
@@ -63,7 +74,7 @@ const SideBar = styled.div`
 const FlexContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  background-color: DodgerBlue;
+  background-color: green;
 `
 
 const Footer = styled.footer`

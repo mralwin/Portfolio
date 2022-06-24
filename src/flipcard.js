@@ -2,11 +2,11 @@ import styled from 'styled-components'
 
 const FlipCardContainer = styled.div`
   background-color: transparent;
-  width: 600px;
-  height: 600px;
+  width: 300px;
+  height: 300px;
   border: 1px solid #f1f1f1;
   perspective: 1000px;
-  
+  margin: 10px
 `
 
 /* This container is needed to position the front and back side */
@@ -17,9 +17,7 @@ const FlipCardInner = styled.div`
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
-  &:hover {
-    transform: rotateY(180deg);
-  }
+  transform: ${props => props.selectedCard = props.id ? "rotateY(180deg)" : "rotateY(0deg)"};
 `
 
 /* Style the front side (fallback if image is missing) */
@@ -45,8 +43,19 @@ const FlipCardBack = styled.div`
   backface-visibility: hidden;
 `
 
-export default function FlipCard() {
+export default function FlipCard(props) {
 
+  const FlipCardInner = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  transform: ${props => props.selectedCard = props.id ? "rotateY(180deg)" : "rotateY(0deg)"};
+`
+
+  console.log(props.id)
   return(
     <FlipCardContainer>
       <FlipCardInner>
