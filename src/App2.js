@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import FlipCard from './flipcard';
+//import FlipCard from './flipcard';
+import StyDiv from './styDiv';
 import React, { useState } from 'react'
 
 
@@ -8,22 +9,24 @@ const App2 = () => {
   const arr = [1,1,1,1,1,1,1,1,1]
   const link = 'https://www.w3schools.com/css/tryit.asp?filename=trycss3_flexbox_flex-wrap_wrap'
   const [selectedCard, setSelectedCard] = useState(null)
+
+  function handleClick(i) {
+    console.log('clicked')
+    setSelectedCard(i)
+  }
   
   return (
     <Container>
       <NavBar>NavBar</NavBar>
       <Main>Main</Main>
-      <SideBar>SideBar</SideBar>
-      
+      <SideBar>SideBarSideBarSideBar</SideBar>
       <FlexContainer>
         {arr.map((e, i) => {
           return(
-          <>
-            <FlipCard key={i} id={i} selectedCard={selectedCard} onClick={(() => console.log(i))}/> 
-            <button onClick={(() => {
-                                      setSelectedCard(i)
-                                      console.log(selectedCard)})}>hit me</button>
-          </>)})}
+            <div onClick={() => handleClick(i)} style={{margin: "70px"}}>
+              <StyDiv key = {i} id = {i} selectedCard = {selectedCard}/>
+            </div>
+          )})}
       </FlexContainer>
       <Footer>Footer</Footer>
     </Container>
@@ -35,10 +38,10 @@ const Container = styled.div`
   height: 100vh;
   grid-template-rows: 0.2fr 1fr 0.5fr 0.5fr;
   grid-template-areas:
-    "nav nav nav nav"
-    "sidebar sidebar main main"
-    "sidebar sidebar FlexContainer FlexContainer"
-    "sidebar sidebar footer footer";
+    "nav nav nav"
+    "sidebar main main"
+    "sidebar FlexContainer FlexContainer"
+    "sidebar footer footer";
   text-align: center;
   grid-gap: 0.25rem;
   transition: all 0.25s ease-in-out;

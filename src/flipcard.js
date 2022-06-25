@@ -10,15 +10,7 @@ const FlipCardContainer = styled.div`
 `
 
 /* This container is needed to position the front and back side */
-const FlipCardInner = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-  transform: ${props => props.selectedCard = props.id ? "rotateY(180deg)" : "rotateY(0deg)"};
-`
+
 
 /* Style the front side (fallback if image is missing) */
 const FlipCardFront = styled.div`
@@ -52,10 +44,14 @@ export default function FlipCard(props) {
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
-  transform: ${props => props.selectedCard = props.id ? "rotateY(180deg)" : "rotateY(0deg)"};
 `
 
-  console.log(props.id)
+  
+/* ${props => {
+    if(props.selectedCard == props.id) css`transform: rotateY(180deg)`;
+  }} */
+  console.log(props.selectedCard)
+
   return(
     <FlipCardContainer>
       <FlipCardInner>
