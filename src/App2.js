@@ -78,6 +78,7 @@ const FlexContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   background-color: green;
+  justify-content: center;
 `
 
 const Footer = styled.footer`
