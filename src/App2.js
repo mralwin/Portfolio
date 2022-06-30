@@ -1,6 +1,7 @@
 import styled from "styled-components";
 //import FlipCard from './flipcard';
 import StyDiv from './styDiv';
+import SassTest from './components/SassTest/SassTest';
 import React, { useState } from 'react'
 
 
@@ -21,6 +22,7 @@ const App2 = () => {
       <Main>Main</Main>
       <SideBar>SideBarSideBarSideBar</SideBar>
       <FlexContainer>
+        <SassTest />
         {arr.map((e, i) => {
           return(
             <div onClick={() => handleClick(i)} style={{margin: "70px"}}>

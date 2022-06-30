@@ -1,0 +1,5 @@
+@use '../../library/global.scss' as global;
+
+.testDiv {
+  background-color: global.$base-color;
+}
