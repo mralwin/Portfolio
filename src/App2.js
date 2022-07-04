@@ -1,7 +1,7 @@
 import styled from "styled-components";
 //import FlipCard from './flipcard';
 import StyDiv from './styDiv';
-import SassTest from './components/SassTest/SassTest';
+import SassCard from './components/SassCard/SassCard';
 import React, { useState } from 'react'
 
 
@@ -22,11 +22,10 @@ const App2 = () => {
       <Main>Main</Main>
       <SideBar>SideBarSideBarSideBar</SideBar>
       <FlexContainer>
-        <SassTest />
         {arr.map((e, i) => {
           return(
             <div onClick={() => handleClick(i)} style={{margin: "70px"}}>
-              <StyDiv key = {i} id = {i} selectedCard = {selectedCard}/>
+              <SassCard key = {i} id = {i} selectedCard = {selectedCard}/>
             </div>
           )})}
       </FlexContainer>
@@ -79,7 +78,7 @@ const SideBar = styled.div`
 const FlexContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  background-color: green;
+  background-color: whitesmoke;
   justify-content: center;
 `
 
