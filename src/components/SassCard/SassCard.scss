@@ -5,15 +5,15 @@
   height: 400px;
   overflow: hidden;
   text-align:center;
+  border-radius: global.$card-corner;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden; 
   grid-area: inner-div;
-  background: blue;
-  transition: transform 2s;
+  display: grid;
+  transition: transform 1s;
 
   &--front {
     @extend .face;
-    background: red;
 
     &--flipped {
       @extend .face--front;
@@ -21,9 +21,24 @@
     }
   }
 
+  &--image {
+    @extend .face;
+    background-image: url('https://students.connect.curtin.edu.au/euf/assets/images/ask/ask_26.jpeg');
+    &:hover {
+      transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+      filter: blur(1px);
+      -webkit-filter: blur(1px);
+    }
+    &--flipped {
+      @extend .face--image;
+      transform: rotateY(180deg);
+    }
+  }
+
   &--back {
     @extend .face;
     transform: rotateY(-180deg);
+    background-color: red;
 
     &--flipped {
       @extend .face--back;
@@ -31,23 +46,35 @@
     }
   }
 }
+
+.face--front--content {
+  grid-area: inner-div;
+  left: 0px;
+  top: 0px;
+}
   
 .container {
   display: grid;
   place-items: center;
+  border-radius: global.$card-corner;
   grid-template-areas: inner-div;
   perspective: 1000px;
   }
 
-.logo {
+.image {
+  background-image: url('https://students.connect.curtin.edu.au/euf/assets/images/ask/ask_26.jpeg');
   width: 300px; 
   height: 400px;
+  grid-template-areas: inner-div;
+  border-radius: global.$card-corner;
   position: relative;
   left: 0px;
   top: 0px;
-  transition: transform 0.2s;
+  transition: transform 0.5s;
 
   &:hover {
-    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    filter: blur(1px);
+    -webkit-filter: blur(1px);
   }
 }
